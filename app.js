@@ -10,6 +10,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressip().getIpInfoMiddleware);
 
 app.use((req, res, next) => {
+    const subdomain = req.subdomains;
+    console.log(subdomain);
+    if (subdomain === 'api.poseidon') {
+        next();
+    } else {
+        res.status(404).send();
+    }
+});
+
+app.use((req, res, next) => {
     // Website you wish to allow to connect
     res.setHeader('Access-Control-Allow-Origin', '*');
 
