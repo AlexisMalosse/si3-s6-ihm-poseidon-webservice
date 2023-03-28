@@ -14,6 +14,7 @@ try {
         cert: certificate
     }, app).listen(PORT);
 } catch (e) {
+    console.log(e);
     const server = app.listen(PORT, () => {
         console.log('server is running on port', server.address().port);
     });
