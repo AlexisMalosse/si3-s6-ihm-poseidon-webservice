@@ -6,8 +6,8 @@ const https = require('https');
 const PORT = process.env.PORT || config.port;
 
 try {
-    const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.poseidon.alexismalosse.fr/privkey.pem');
-    const certificate = fs.readFileSync('/etc/letsencrypt/live/api.poseidon.alexismalosse.fr/fullchain.pem');
+    const privateKey = fs.readFileSync('REMOVE_HERE/etc/letsencrypt/live/api.poseidon.alexismalosse.fr/privkey.pem');
+    const certificate = fs.readFileSync('REMOVE_HERE/etc/letsencrypt/live/api.poseidon.alexismalosse.fr/fullchain.pem');
 
     https.createServer({
         key: privateKey,
