@@ -15,27 +15,27 @@ router.get('/:id', async (req, res) => {
     res.json(poi);
 });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     const poi = req.body;
     console.log(poi);
-    poisService.createPoi(poi);
+    await poisService.createPoi(poi);
     res.json(poi);
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
     const poi = req.body;
     console.log(poi);
-    poisService.updatePoi(req.params.id, poi);
+    await poisService.updatePoi(req.params.id, poi);
     res.json(poi);
 });
 
-router.delete('/:id', (req, res) => {
-    poisService.deletePoi(req.params.id);
+router.delete('/:id', async (req, res) => {
+    await poisService.deletePoi(req.params.id);
     res.json({ message: 'Poi deleted' });
 });
 
-router.delete('/', (req, res) => {
-    poisService.deleteAllPois();
+router.delete('/', async (req, res) => {
+    await poisService.deleteAllPois();
     res.json({ message: 'All pois deleted' });
 });
 

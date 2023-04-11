@@ -10,19 +10,19 @@ exports.getPoi = async (id) => {
     return poi.toObject();
 };
 
-exports.createPoi = (poi) => {
+exports.createPoi = async (poi) => {
     const newPoi = new Pois(poi);
-    return newPoi.save();
+    return await newPoi.save();
 }
 
-exports.updatePoi = (id, poi) => {
-    return Pois.findByIdAndUpdate(id, poi);
+exports.updatePoi = async (id, poi) => {
+    return await Pois.findByIdAndUpdate(id, poi);
 }
 
-exports.deletePoi = (id) => {
-    return Pois.findByIdAndDelete(id);
+exports.deletePoi = async (id) => {
+    return await Pois.findByIdAndDelete(id);
 }
 
-exports.deleteAllPois = () => {
-    return Pois.deleteMany();
+exports.deleteAllPois = async () => {
+    return await Pois.deleteMany();
 }
