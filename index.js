@@ -13,7 +13,7 @@ try {
         key: privateKey,
         cert: certificate
     }, app).listen(PORT);
-    console.log('https server is running on port', server.address().port);
+    console.log('https server is running on port ' + PORT);
 } catch (e) {
     console.log(e);
     const server = app.listen(PORT, () => {

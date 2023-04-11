@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const expressip = require('express-ip');
 
 const app = express();
+
+mongoose.connect('mongodb://localhost/poseidon', { useNewUrlParser: true });
 
 var isLocalhost = (req) => {
     var ip = req.connection.remoteAddress;
