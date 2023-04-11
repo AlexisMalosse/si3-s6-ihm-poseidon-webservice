@@ -4,7 +4,9 @@ const poisService = require('../services/poisService');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.json(poisService.getAllPois());
+    const pois = poisService.getAllPois();
+    console.log(pois);
+    res.json(pois);
 });
 
 router.post('/', (req, res) => {
