@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const poi = req.body;
+    console.log(poi);
     poisService.createPoi(poi);
     res.json(poi);
 });
