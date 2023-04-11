@@ -3,8 +3,8 @@ const poisService = require('../services/poisService');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    const pois = poisService.getAllPois();
+router.get('/', async (req, res) => {
+    const pois = await poisService.getAllPois();
     console.log(pois);
     res.json(pois);
 });
