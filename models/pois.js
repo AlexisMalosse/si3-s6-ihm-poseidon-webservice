@@ -16,6 +16,7 @@ const poisSchema = new mongoose.Schema(
         weather: { type: String, enum: Object.values(weatherEnum), required: true },
         perimeter: { type: Number, required: true },
         finished: { type: Boolean, default: false },
+        creatorEmail: { type: String, required: true },
     },
     {
         timestamps: true
