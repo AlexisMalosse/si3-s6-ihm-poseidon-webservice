@@ -17,6 +17,7 @@ const poisSchema = new mongoose.Schema(
         perimeter: { type: Number, required: true },
         finished: { type: Boolean, default: false },
         creatorEmail: { type: String, required: true },
+        creatorFullname: { type: String, required: true },
     },
     {
         timestamps: true
