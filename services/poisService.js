@@ -11,7 +11,7 @@ exports.getPoi = async (id) => {
 };
 
 exports.getHistoryForUser = async (email) => {
-    const pois = await Pois.find({ creatorEmail: email });
+    const pois = await Pois.find({ creatorEmail: email }).sort({ createdAt: -1 });
     return pois.map(poi => poi.toObject());
 };
 
