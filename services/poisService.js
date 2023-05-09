@@ -1,4 +1,4 @@
-const Pois = require('../models/pois');
+const { Pois } = require('../models/pois');
 
 exports.getAllPois = async () => {
     const pois = await Pois.find({ finished: false });

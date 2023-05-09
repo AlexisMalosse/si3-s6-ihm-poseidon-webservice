@@ -24,4 +24,9 @@ const poisSchema = new mongoose.Schema(
     },
 );
 
-module.exports = mongoose.model('Pois', poisSchema);
+const Pois = mongoose.model('Pois', poisSchema);
+
+module.exports = {
+    Pois,
+    weatherEnum,
+};
