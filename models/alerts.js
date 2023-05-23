@@ -10,6 +10,7 @@ const alertsSchema = new mongoose.Schema(
         listWeather: [{ type: String, enum: Object.values(weatherEnum), required: true }],
         creatorEmail: { type: String, required: true },
         creatorFullname: { type: String, required: true },
+        enabled: { type: Boolean, required: true, default: true },
     },
     {
         timestamps: true
