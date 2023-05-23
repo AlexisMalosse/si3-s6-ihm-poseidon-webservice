@@ -11,6 +11,7 @@ const alertsSchema = new mongoose.Schema(
         creatorEmail: { type: String, required: true },
         creatorFullname: { type: String, required: true },
         enabled: { type: Boolean, required: true, default: true },
+        perimeter: { type: Number, required: true },
     },
     {
         timestamps: true
