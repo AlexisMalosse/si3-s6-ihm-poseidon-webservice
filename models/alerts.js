@@ -12,6 +12,7 @@ const alertsSchema = new mongoose.Schema(
         creatorFullname: { type: String, required: true },
         enabled: { type: Boolean, required: true, default: true },
         perimeter: { type: Number, required: true },
+        fireBaseToken: {type: String, required: true}
     },
     {
         timestamps: true

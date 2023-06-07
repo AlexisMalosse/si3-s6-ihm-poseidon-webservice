@@ -9,6 +9,15 @@ const weatherEnum = {
     RAIN: 'RAIN',
 }
 
+const weatherInFrench = {
+    SUN: 'Soleil',
+    CLOUD: 'Nuageux',
+    THUNDERSTORM: 'Orage',
+    WIND: 'Vent',
+    STORM: 'Tempête',
+    RAIN: 'Pluie',
+}
+
 const poisSchema = new mongoose.Schema(
     {
         latitude: { type: Number, required: true },
@@ -29,4 +38,5 @@ const Pois = mongoose.model('Pois', poisSchema);
 module.exports = {
     Pois,
     weatherEnum,
+    weatherInFrench
 };
