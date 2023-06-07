@@ -20,14 +20,8 @@ exports.createPoi = async (poi) => {
     return await newPoi.save();
 }
 
-exports.updatePoi = async (id, poi) => {
-    return await Pois.findByIdAndUpdate(id, poi);
-}
+exports.updatePoi = async (id, poi) => await Pois.findByIdAndUpdate(id, poi);
 
-exports.deletePoi = async (id) => {
-    return await Pois.findByIdAndDelete(id);
-}
+exports.deletePoi = async (id) => await Pois.findByIdAndDelete(id);
 
-exports.deleteAllPois = async () => {
-    return await Pois.deleteMany();
-}
+exports.deleteAllPois = async () => await Pois.deleteMany();

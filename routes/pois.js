@@ -30,19 +30,19 @@ router.get('/history/:email', async (req, res) => {
 router.post('/', async (req, res) => {
     const poi = req.body;
     // console.log(poi);
-    await poisService.createPoi(poi);
-    res.json(poi);
+    const poiCreated = await poisService.createPoi(poi);
     const alerts = await getAlertsCorresponding(poi);
     (alerts).forEach(async alert => {
         await sendNotification(alert.fireBaseToken, `Alerte ${weatherInFrench[poi.weather]}`, `Votre alerte "${alert.name}" a détecté un nouvel évènement météo !`, weatherEnum[poi.weather]);
     });
+    res.json(poiCreated);
 });
 
 router.put('/:id', async (req, res) => {
     const poi = req.body;
     // console.log(poi);
-    await poisService.updatePoi(req.params.id, poi);
-    res.json(poi);
+    const poiUpdated = await poisService.updatePoi(req.params.id, poi);
+    res.json(poiUpdated);
 });
 
 router.delete('/:id', async (req, res) => {
