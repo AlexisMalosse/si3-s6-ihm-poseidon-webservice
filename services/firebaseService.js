@@ -7,12 +7,16 @@ admin.initializeApp({
     // Autres options de configuration
   });
 
-async function sendNotification(token, title, body) {
+async function sendNotification(token, title, body, weather) {
   const message = {
     notification: {
       title: title,
-      body: body
+      body: body,
+      
     },
+    data:{
+        weather: weather,
+      },
     token: token
   };
 
