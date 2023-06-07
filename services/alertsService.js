@@ -30,7 +30,8 @@ exports.deleteAllAlerts = async () => {
  */
 exports.getAlertsCorresponding = async (poi) => {
     
-    const alerts = await Alerts.find({ listWeather: { $in: [poi.weather] } });
+    const alerts = await Alerts.find({ listWeather: { $in: [poi.weather] }, enabled: true });
+
     const point2 = {latitude: poi.latitude, longitude: poi.longitude};
     // code here
     const nearbyAlerts = alerts.map((alert)=>{
