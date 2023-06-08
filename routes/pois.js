@@ -34,7 +34,8 @@ router.post('/', async (req, res) => {
     res.json(poiCreated);
     const alerts = await getAlertsCorresponding(poi);
     (alerts).forEach(async alert => {
-        await sendNotification(alert.fireBaseToken, `Alerte ${weatherInFrench[poi.weather]}`, `Votre alerte "${alert.name}" a détecté un nouvel évènement météo !`, weatherEnum[poi.weather]);
+        if(alert.fireBaseToken)
+            await sendNotification(alert.fireBaseToken, `Alerte ${weatherInFrench[poi.weather]}`, `Votre alerte "${alert.name}" a détecté un nouvel évènement météo !`, weatherEnum[poi.weather]);
     });
 });
 
