@@ -50,7 +50,7 @@ exports.getAlertsCorresponding = async (poi) => {
 
 
 const isPointInZone = (point1, point2, perimeter1, perimeter2) => {
-    const perimeterMeters = perimeter1 * 1000 + perimeter2 * 1000; // convertion en km, besoin de changer si on passe en mille marin
+    const perimeterMeters = perimeter1 * 1852 + perimeter2 * 1852; 
     const distance = geolib.getDistance(point1, point2);
     
     return distance <= perimeterMeters;
