@@ -31,11 +31,11 @@ router.post('/', async (req, res) => {
     const poi = req.body;
     // console.log(poi);
     const poiCreated = await poisService.createPoi(poi);
+    res.json(poiCreated);
     const alerts = await getAlertsCorresponding(poi);
     (alerts).forEach(async alert => {
         await sendNotification(alert.fireBaseToken, `Alerte ${weatherInFrench[poi.weather]}`, `Votre alerte "${alert.name}" a détecté un nouvel évènement météo !`, weatherEnum[poi.weather]);
     });
-    res.json(poiCreated);
 });
 
 router.put('/:id', async (req, res) => {
