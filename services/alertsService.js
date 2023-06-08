@@ -44,7 +44,6 @@ exports.getAlertsCorresponding = async (poi) => {
         if(isPointInZone(point1, point2, alert.perimeter, poi.perimeter))
             return alert;
     })
-    console.log(nearbyAlerts);
     return nearbyAlerts;
     
 }
