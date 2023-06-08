@@ -3,6 +3,12 @@ const alertsService = require('../services/alertsService');
 
 const router = express.Router();
 
+router.get('/', async (req, res) => {
+    const alerts = await alertsService.getAllAlerts();
+    // console.log(alerts);
+    res.json(alerts);
+});
+
 router.get('/:email', async (req, res) => {
     const alerts = await alertsService.getAlertsForUser(req.params.email);
     // console.log(alerts);

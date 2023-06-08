@@ -1,6 +1,11 @@
 const Alerts = require('../models/alerts');
 const geolib = require('geolib');
 
+exports.getAllAlerts = async () => {
+    const alerts = await Alerts.find();
+    return alerts.map(alert => alert.toObject());
+};
+
 exports.getAlertsForUser = async (email) => {
     const alerts = await Alerts.find({ creatorEmail: email });
     return alerts.map(alert => alert.toObject());
