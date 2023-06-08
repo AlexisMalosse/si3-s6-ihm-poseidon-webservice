@@ -41,7 +41,7 @@ exports.getAlertsCorresponding = async (poi) => {
     // code here
     const nearbyAlerts = alerts.map((alert)=>{
         let point1 = {latitude: alert.latitude, longitude: alert.longitude};
-        if(isPointInZone(point1, point2, alert.perimeter, poi.perimeter))
+        if(isPointInZone(point1, point2, alert.perimeter, poi.perimeter) && alert.creatorEmail !== poi.creatorEmail)
             return alert;
     })
     return nearbyAlerts;
