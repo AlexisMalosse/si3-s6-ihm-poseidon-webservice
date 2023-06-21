@@ -19,14 +19,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(expressip().getIpInfoMiddleware);
 
-app.use((req, res, next) => {
-    const subdomain = req.subdomains[1] + '.' + req.subdomains[0];
-    if (subdomain === 'api.poseidon' || isLocalhost(req)) {
-        next();
-    } else {
-        res.status(404).send();
-    }
-});
+// app.use((req, res, next) => {
+//     const subdomain = req.subdomains[1] + '.' + req.subdomains[0];
+//     if (subdomain === 'api.poseidon' || isLocalhost(req)) {
+//         next();
+//     } else {
+//         res.status(404).send();
+//     }
+// });
 
 app.use((req, res, next) => {
     // Website you wish to allow to connect
